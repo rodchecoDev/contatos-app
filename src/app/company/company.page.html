@@ -7,10 +7,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let company of companies">
+      <div class="company">
+        <p>{{company.name}}</p>
+        <p>{{company.type}}</p>
+        <p>{{company.phone}}</p>
+        <p *ngIf="company.addressLogradouro && company.addressNumero">
+          {{company.addressLogradouro}}, {{company.addressNumero}}
+        </p>
+        <p *ngIf="company.addressComplement">
+          {{company.addressComplement}}
+        </p>
+        <p *ngIf="company.addressBairro">
+          {{company.addressBairro}}
+        </p>
+        <p *ngIf="company.addressCidade && company.addressUf">
+          {{company.addressCidade}}/{{company.addressUf}}
+        </p>
+      </div>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
